@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+body {
+  height: 100%;
+  background-image: url("/Users/pierdomenicoapruzzese/weather/src/assets/Desktop-Sky-Backgrounds.jpg");
+  font-family: "Quicksand", sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +42,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  -webkit-text-stroke: 2px black; /* width and color */
+  color: whitesmoke;
+  font-weight: 800;
+}
+
+.daycard,
+.panel {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.daycard:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.panel p:nth-of-type(1n) {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.panel p:nth-of-type(2) {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.daycard p {
+  font: size 14px;
+  font-weight: bold;
 }
