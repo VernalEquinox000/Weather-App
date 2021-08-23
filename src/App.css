@@ -2,7 +2,7 @@
 
 body {
   height: 100%;
-  background-image: url("/Users/pierdomenicoapruzzese/weather/src/assets/Desktop-Sky-Backgrounds.jpg");
+  background-image: url("/Users/pierdomenicoapruzzese/weather/src/assets/background.jpg");
   font-family: "Quicksand", sans-serif;
 }
 .App {
