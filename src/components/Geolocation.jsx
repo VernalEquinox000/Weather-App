@@ -111,26 +111,55 @@ export default function GeoLocation() {
         </Col>
       </Row>
       <Row className="mt-5 d-flex   justify-content-center">
-        {weatherData &&
-          weatherData.data
-            .map((e, index) => (
-              <Col
-                key={index}
-                className="mb-2 px-0"
-                xs={6}
-                sm={3}
-                md={2}
-                lg={1}
-                xl={1}
-                style={{
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                }}
-              >
-                <DayCard weatherObj={e} />
-              </Col>
-            ))
-            .slice(1, 8)}
+        {loader ? (
+          [0, 1, 2, 3, 4, 5, 6].map((e, index) => (
+            <Col
+              key={index}
+              className="mb-2 px-0"
+              xs={6}
+              sm={3}
+              md={2}
+              lg={1}
+              xl={1}
+              style={{
+                marginLeft: "10px",
+                marginRight: "10px",
+              }}
+            >
+              <Loader
+                type="BallTriangle"
+                color="#000000"
+                height={50}
+                width={50}
+                timeout={3000} //3 secs
+              />
+            </Col>
+          ))
+        ) : (
+          <>
+            {error && <alert>{error}</alert>}
+            {weatherData &&
+              weatherData.data
+                .map((e, index) => (
+                  <Col
+                    key={index}
+                    className="mb-2 px-0"
+                    xs={6}
+                    sm={3}
+                    md={2}
+                    lg={1}
+                    xl={1}
+                    style={{
+                      marginLeft: "10px",
+                      marginRight: "10px",
+                    }}
+                  >
+                    <DayCard weatherObj={e} />
+                  </Col>
+                ))
+                .slice(1, 8)}
+          </>
+        )}
       </Row>
     </>
   );

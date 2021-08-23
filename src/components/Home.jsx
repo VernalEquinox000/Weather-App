@@ -132,8 +132,8 @@ export default function Home() {
                 <Loader
                   type="BallTriangle"
                   color="#000000"
-                  height={250}
-                  width={250}
+                  height={500}
+                  width={500}
                   timeout={3000} //3 secs
                 />
               ) : (
@@ -145,8 +145,8 @@ export default function Home() {
             </Col>
           </Row>
           <Row className="mt-5 d-flex   justify-content-center">
-            {weatherData.data
-              .map((e, index) => (
+            {loader ? (
+              [0, 1, 2, 3, 4, 5, 6].map((e, index) => (
                 <Col
                   key={index}
                   className="mb-2 px-0"
@@ -160,10 +160,40 @@ export default function Home() {
                     marginRight: "10px",
                   }}
                 >
-                  <DayCard weatherObj={e} />
+                  <Loader
+                    type="BallTriangle"
+                    color="#000000"
+                    height={75}
+                    width={75}
+                    timeout={3000} //3 secs
+                  />
                 </Col>
               ))
-              .slice(1, 8)}
+            ) : (
+              <>
+                {error && <alert>{error}</alert>}
+                {weatherData &&
+                  weatherData.data
+                    .map((e, index) => (
+                      <Col
+                        key={index}
+                        className="mb-2 px-0"
+                        xs={6}
+                        sm={3}
+                        md={2}
+                        lg={1}
+                        xl={1}
+                        style={{
+                          marginLeft: "10px",
+                          marginRight: "10px",
+                        }}
+                      >
+                        <DayCard weatherObj={e} />
+                      </Col>
+                    ))
+                    .slice(1, 8)}
+              </>
+            )}
           </Row>
         </>
       )}
