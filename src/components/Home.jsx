@@ -176,6 +176,7 @@ export default function Home() {
                   weatherData.data
                     .map((e, index) => (
                       <Col
+                        style={{ height: "20vh" }}
                         key={index}
                         className="mb-2 px-0"
                         xs={6}
